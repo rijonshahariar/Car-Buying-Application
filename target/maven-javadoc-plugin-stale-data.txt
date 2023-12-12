@@ -1,0 +1,45 @@
+@options
+@packages
+-encoding
+'UTF-8'
+-protected
+-source
+'20'
+-sourcepath
+'C:/Users/LENOVO/OneDrive/Documents/NetBeansProjects/automobils/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2023. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/LENOVO/OneDrive/Documents/NetBeansProjects/automobils/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'automobils 1.0-SNAPSHOT API'
+-use
+-version
+-windowtitle
+'automobils 1.0-SNAPSHOT API'
+com.mycompany.automobils
+C:\Users\LENOVO\OneDrive\Documents\NetBeansProjects\automobils\src\main\java = 1702277647677
+C:\Users\LENOVO\OneDrive\Documents\NetBeansProjects\automobils\target\site\apidocs\allclasses-index.html = 1702292744574
+C:\Users\LENOVO\OneDrive\Documents\NetBeansProjects\automobils\target\site\apidocs\allpackages-index.html = 1702292744574
+C:\Users\LENOVO\OneDrive\Documents\NetBeansProjects\automobils\target\site\apidocs\copy.svg = 1702292744654
+C:\Users\LENOVO\OneDrive\Documents\NetBeansProjects\automobils\target\site\apidocs\element-list = 1702292744391
+C:\Users\LENOVO\OneDrive\Documents\NetBeansProjects\automobils\target\site\apidocs\help-doc.html = 1702292744634
+C:\Users\LENOVO\OneDrive\Documents\NetBeansProjects\automobils\target\site\apidocs\index-all.html = 1702292744614
+C:\Users\LENOVO\OneDrive\Documents\NetBeansProjects\automobils\target\site\apidocs\index.html = 1702292744634
+C:\Users\LENOVO\OneDrive\Documents\NetBeansProjects\automobils\target\site\apidocs\member-search-index.js = 1702292744594
+C:\Users\LENOVO\OneDrive\Documents\NetBeansProjects\automobils\target\site\apidocs\module-search-index.js = 1702292744590
+C:\Users\LENOVO\OneDrive\Documents\NetBeansProjects\automobils\target\site\apidocs\overview-tree.html = 1702292744551
+C:\Users\LENOVO\OneDrive\Documents\NetBeansProjects\automobils\target\site\apidocs\package-search-index.js = 1702292744594
+C:\Users\LENOVO\OneDrive\Documents\NetBeansProjects\automobils\target\site\apidocs\script.js = 1702292744653
+C:\Users\LENOVO\OneDrive\Documents\NetBeansProjects\automobils\target\site\apidocs\search-page.js = 1702292744654
+C:\Users\LENOVO\OneDrive\Documents\NetBeansProjects\automobils\target\site\apidocs\search.html = 1702292744629
+C:\Users\LENOVO\OneDrive\Documents\NetBeansProjects\automobils\target\site\apidocs\search.js = 1702292744654
+C:\Users\LENOVO\OneDrive\Documents\NetBeansProjects\automobils\target\site\apidocs\serialized-form.html = 1702292744494
+C:\Users\LENOVO\OneDrive\Documents\NetBeansProjects\automobils\target\site\apidocs\stylesheet.css = 1702292744649
+C:\Users\LENOVO\OneDrive\Documents\NetBeansProjects\automobils\target\site\apidocs\tag-search-index.js = 1702292744594
+C:\Users\LENOVO\OneDrive\Documents\NetBeansProjects\automobils\target\site\apidocs\type-search-index.js = 1702292744594

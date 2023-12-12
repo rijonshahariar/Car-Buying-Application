@@ -33,7 +33,7 @@ public class Login extends javax.swing.JFrame {
      * Creates new form MainFrame
      */
     public Login() {
-        initComponents();
+      initComponents();
      String imgURL = "https://hips.hearstapps.com/hmg-prod/images/2024-lamborghini-revuelto-127-641a1d518802b.jpg?crop=0.566xw:1.00xh;0.184xw,0&resize=640:*";
     ImageIcon image = null;
    try {
@@ -266,6 +266,7 @@ public class Login extends javax.swing.JFrame {
         Homepage home = new Homepage();
         home.setVisible(true);
         dispose();
+        
     }//GEN-LAST:event_jButton1ActionPerformed
     
    

@@ -1,0 +1,62 @@
+[
+  {
+    "carName": "Audi Q2",
+    "brand": "Audi",
+    "price": "$79,990",
+    "imageLink": "https://i.ibb.co/86gwjC8/get-Image-7.png"
+  },
+  {
+    "carName": "Peugeot 2008",
+    "brand": "Peugeot",
+    "price": "$40,750",
+    "imageLink": "https://i.ibb.co/1JmDgxr/get-Image-9.png"
+  },
+  {
+    "carName": "Marcedes EQA",
+    "brand": "Marcedes",
+    "price": "$21,250",
+    "imageLink": "https://i.ibb.co/Tr2tT7J/get-Image-8.png"
+  },
+  {
+    "carName": "Honda Jazz",
+    "brand": "Honda",
+    "price": "$41,120",
+    "imageLink": "https://i.ibb.co/G0vMB0w/get-Image-6.png"
+  },
+  {
+    "carName": "Citreon C4",
+    "brand": "Citreon",
+    "price": "$25,045",
+    "imageLink": "https://i.ibb.co/4FD4rYS/get-Image-3.png"
+  },
+  {
+    "carName": "Toyota Supra",
+    "brand": "Toyota",
+    "price": "$28,725",
+    "imageLink": "https://i.ibb.co/6XQhNPF/get-Image-2.png"
+  },
+  {
+    "carName": "Volkswagen T-Cross",
+    "brand": "Volkswagen",
+    "price": "$24,970",
+    "imageLink": "https://i.ibb.co/GJvJqjY/get-Image-4.png"
+  },
+  {
+    "carName": "Golf",
+    "brand": "Volkswagen",
+    "price": "$23,195",
+    "imageLink": "https://example.com/golf.jpg"
+  },
+  {
+    "carName": "F-150",
+    "brand": "Ford",
+    "price": "$28,940",
+    "imageLink": "https://example.com/f150.jpg"
+  },
+  {
+    "carName": "Rogue",
+    "brand": "Nissan",
+    "price": "$26,950",
+    "imageLink": "https://example.com/rogue.jpg"
+  }
+]

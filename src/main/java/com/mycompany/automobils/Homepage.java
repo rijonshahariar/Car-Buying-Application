@@ -313,7 +313,7 @@ public class Homepage extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 0, 0));
         jLabel6.setText("jLabel6");
 
-        jLabel9.setFont(new java.awt.Font("Agency FB", 0, 13)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Agency FB", 0, 18)); // NOI18N
         jLabel9.setText("jLabel9");
 
         jLabel10.setFont(new java.awt.Font("Agency FB", 0, 18)); // NOI18N
@@ -369,7 +369,7 @@ public class Homepage extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(255, 0, 0));
         jLabel11.setText("jLabel6");
 
-        jLabel13.setFont(new java.awt.Font("Agency FB", 0, 13)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Agency FB", 0, 18)); // NOI18N
         jLabel13.setText("jLabel9");
 
         jLabel14.setFont(new java.awt.Font("Agency FB", 0, 18)); // NOI18N
@@ -426,7 +426,7 @@ public class Homepage extends javax.swing.JFrame {
         jLabel18.setForeground(new java.awt.Color(255, 0, 0));
         jLabel18.setText("jLabel6");
 
-        jLabel19.setFont(new java.awt.Font("Agency FB", 0, 13)); // NOI18N
+        jLabel19.setFont(new java.awt.Font("Agency FB", 0, 18)); // NOI18N
         jLabel19.setText("jLabel9");
 
         jLabel20.setFont(new java.awt.Font("Agency FB", 0, 18)); // NOI18N
@@ -482,7 +482,7 @@ public class Homepage extends javax.swing.JFrame {
         jLabel15.setForeground(new java.awt.Color(255, 0, 0));
         jLabel15.setText("jLabel6");
 
-        jLabel16.setFont(new java.awt.Font("Agency FB", 0, 13)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Agency FB", 0, 18)); // NOI18N
         jLabel16.setText("jLabel9");
 
         jLabel17.setFont(new java.awt.Font("Agency FB", 0, 18)); // NOI18N
@@ -526,7 +526,7 @@ public class Homepage extends javax.swing.JFrame {
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel17)
                     .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 14, Short.MAX_VALUE))
+                .addGap(0, 8, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

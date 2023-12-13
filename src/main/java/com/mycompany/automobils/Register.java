@@ -224,6 +224,7 @@ public class Register extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+
     private void EmailNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmailNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_EmailNameActionPerformed
@@ -254,22 +255,28 @@ public class Register extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
-       String email;
+        String email, password;
         email = EmailName.getText();
-        String password = String.valueOf(jPasswordField1.getPassword());
+        password = String.valueOf(jPasswordField1.getPassword());
 
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql?user=root&password=root");
-            Statement stmt = (Statement) con.createStatement();
+        if (email.isEmpty() || password.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Enter Email and Password", "Error", 1);
+        }
+        else{
+             try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql?user=root&password=root");
+                Statement stmt = (Statement) con.createStatement();
 
-            String insert = "INSERT INTO userreg VALUES('" + email + "','" + password + "', null, null, null);";
-            stmt.executeUpdate(insert);
+                String insert = "INSERT INTO userreg VALUES('" + email + "','" + password + "', null, null, null);";
+                stmt.executeUpdate(insert);
+                Login login = new Login();
+                login.setVisible(true);
+                dispose();
 
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage(), "Error", 1);
-
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e.getMessage(), "Error", 1);
+            }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

@@ -384,9 +384,8 @@ public class Homepage extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1142,6 +1141,8 @@ public class Homepage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    String carName, carPrice, carBrand; // to add selected orders in the database
+    
     public void orderSidebar(int id) {
         jLabel36.setVisible(false);
         jLayeredPane2.setVisible(true);
@@ -1158,6 +1159,10 @@ public class Homepage extends javax.swing.JFrame {
                 while (rs.next()) {
                     int i = rs.getInt("id");
                     if (i == id) {
+                        carName = rs.getString("name");
+                        carPrice = rs.getString("price");
+                        carBrand = rs.getString("brand");
+                        
                         jLabel37.setText(rs.getString("name"));
                         jTextField2.setText('$' + rs.getString("price"));
                     }
@@ -1226,17 +1231,60 @@ public class Homepage extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-    
+
     }//GEN-LAST:event_formWindowActivated
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
         // TODO add your handling code here:
+        String name, address, phone, card, cvv, exp, price;
+        name = jTextField1.getText();
+        address = jTextField3.getText();
+        phone = jTextField6.getText();
+        card = jTextField7.getText();
+        cvv = jTextField4.getText();
+        exp = jTextField5.getText();
+        price = jTextField2.getText();
+        
+        String email = "na@gmail.com";
+
+        Boolean isempty = false;
+
+        if (name.isEmpty() || address.isEmpty() || phone.isEmpty() || card.isEmpty() || cvv.isEmpty() || exp.isEmpty()) {
+            isempty = true;
+        }
+        
+        if(isempty == false){
+             try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql?user=root&password=root");
+                Statement stmt = (Statement) con.createStatement();
+
+                String insert = "INSERT INTO orders VALUES('" + carName + "','" + email + "','" + name + "','" + price + "','" + address + "');";
+                stmt.executeUpdate(insert);
+                
+
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e.getMessage(), "Error", 1);
+            }  
+             
+            
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Insert all information", "Error", 1);
+        }
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
         // TODO add your handling code here:
         jLabel36.setVisible(true);
         jLayeredPane2.setVisible(false);
+        jTextField1.setText("");
+        jTextField3.setText("");
+        jTextField6.setText("");
+        jTextField7.setText("");
+        jTextField4.setText("");
+        jTextField5.setText("");
+
     }//GEN-LAST:event_jButton14ActionPerformed
 
     /**

@@ -22,6 +22,10 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import javax.swing.*;
 import java.awt.Color;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 /**
  *
@@ -34,7 +38,7 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
-        
+
         String imgURL = "https://hips.hearstapps.com/hmg-prod/images/2024-lamborghini-revuelto-127-641a1d518802b.jpg?crop=0.566xw:1.00xh;0.184xw,0&resize=640:*";
         ImageIcon image = null;
         try {
@@ -258,12 +262,51 @@ public class Login extends javax.swing.JFrame {
     private void jButton2AncestorMoved(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jButton2AncestorMoved
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2AncestorMoved
-
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Homepage home = new Homepage();
-        home.setVisible(true);
-        dispose();
+
+        String email = jTextField2.getText();
+        boolean isUser = false;
+        String password = String.valueOf(jPasswordField1.getPassword());
+
+        if (password.isEmpty() || email.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Enter Email and Password", "Error", 1);
+        } else {
+            try {
+
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                Statement stmt;
+                ResultSet rs;
+                try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql?user=root&password=root")) {
+                    stmt = conn.createStatement();
+                    String sql = "SELECT * FROM userreg LIMIT 100";
+                    rs = stmt.executeQuery(sql);
+
+                    while (rs.next()) {
+                        String emailcheck = rs.getString("email");
+                        String name = rs.getString("name");
+                        String passwordcheck = rs.getString("pass");
+                        if (emailcheck.equals(email) && passwordcheck.equals(password)) {
+                            isUser = true;
+                            Homepage home = new Homepage(email, name);
+                            home.setVisible(true);
+                            dispose();
+                        }
+                    }
+                    if (isUser == false) {
+                        JOptionPane.showMessageDialog(null, "Wrong Email or Password", "Error", 1);
+                        jPasswordField1.setText("");
+                    }
+                }
+                rs.close();
+                stmt.close();
+
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
+
 
     }//GEN-LAST:event_jButton1ActionPerformed
 

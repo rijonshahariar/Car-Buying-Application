@@ -39,10 +39,18 @@ public class Homepage extends javax.swing.JFrame {
     /**
      * Creates new form Homepage
      */
-    public Homepage() {
+    String carName, carPrice, carBrand, userEmail; // to add selected orders in the database
+
+    public Homepage(String curEmail, String username) {
         initComponents();
+        userEmail = curEmail;
         jLayeredPane2.setVisible(false);
         jLayeredPane3.setVisible(false);
+        
+        if(username != null){
+            jLabel48.setText("Hi, " + username + '!');
+        }
+        
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
@@ -172,6 +180,7 @@ public class Homepage extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -257,6 +266,7 @@ public class Homepage extends javax.swing.JFrame {
         });
 
         jPanel3.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         jButton3.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
@@ -303,13 +313,13 @@ public class Homepage extends javax.swing.JFrame {
         jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton6.setFocusPainted(false);
 
+        jButton7.setBackground(new java.awt.Color(255, 51, 0));
         jButton7.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
         jButton7.setForeground(new java.awt.Color(255, 255, 255));
         jButton7.setText("Log Out >");
         jButton7.setToolTipText("");
         jButton7.setActionCommand("logout");
         jButton7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 2, true));
-        jButton7.setContentAreaFilled(false);
         jButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton7.setFocusPainted(false);
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -325,6 +335,9 @@ public class Homepage extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Algerian", 0, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 0, 0));
         jLabel2.setText("BD");
+
+        jLabel48.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel48.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -342,6 +355,8 @@ public class Homepage extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel48, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45)
                 .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18))
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -359,7 +374,8 @@ public class Homepage extends javax.swing.JFrame {
                         .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
                         .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
                         .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
-                        .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE))
+                        .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                        .addComponent(jLabel48))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1183,8 +1199,6 @@ public class Homepage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    String carName, carPrice, carBrand; // to add selected orders in the database
-
     public void orderSidebar(int id) {
         jLabel36.setVisible(false);
         jLayeredPane2.setVisible(true);
@@ -1193,12 +1207,16 @@ public class Homepage extends javax.swing.JFrame {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            Statement stmt;
-            ResultSet rs;
+            Statement stmt, stmt2;
+            ResultSet rs, order;
             try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql?user=root&password=root")) {
                 stmt = conn.createStatement();
+                stmt2 = conn.createStatement();
                 String sql = "SELECT * FROM cars LIMIT 100";
+                String sqlUser = "SELECT * FROM userreg LIMIT 100";
+
                 rs = stmt.executeQuery(sql);
+                order = stmt2.executeQuery(sqlUser);
 
                 while (rs.next()) {
                     int i = rs.getInt("id");
@@ -1212,8 +1230,19 @@ public class Homepage extends javax.swing.JFrame {
                     }
                 }
 
+                while (order.next()) {
+                    String emailcheck = order.getString("email");
+                    if (emailcheck.equals(userEmail)) {
+                        jTextField1.setText(order.getString("name"));
+                        jTextField3.setText(order.getString("address"));
+                        jTextField7.setText(order.getString("card"));
+                    }
+
+                }
+
             }
             rs.close();
+            order.close();
             stmt.close();
 
         } catch (Exception e) {
@@ -1289,7 +1318,7 @@ public class Homepage extends javax.swing.JFrame {
         exp = jTextField5.getText();
         price = jTextField2.getText();
 
-        String email = "na@gmail.com";
+        String email = userEmail;
 
         Boolean isempty = false;
 
@@ -1304,7 +1333,10 @@ public class Homepage extends javax.swing.JFrame {
                 Statement stmt = (Statement) con.createStatement();
 
                 String insert = "INSERT INTO orders VALUES('" + carName + "','" + email + "','" + name + "','" + price + "','" + address + "');";
+                String update = "UPDATE userreg SET name = '" + name + "', card = '" + card + "', address = '" + address + "' WHERE email = '" + userEmail + "' ";
+
                 stmt.executeUpdate(insert);
+                stmt.executeUpdate(update);
 
                 jLayeredPane3.setVisible(true);
 
@@ -1376,7 +1408,9 @@ public class Homepage extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Homepage().setVisible(true);
+                String curEmail = null;
+                String username = null;
+                new Homepage(curEmail, username).setVisible(true);
             }
         });
     }
@@ -1439,6 +1473,7 @@ public class Homepage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;

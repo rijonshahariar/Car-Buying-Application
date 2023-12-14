@@ -35,20 +35,24 @@ import java.sql.Statement;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+import org.apache.commons.dbutils.DbUtils;
 
 public class Homepage extends javax.swing.JFrame {
 
     /**
      * Creates new form Homepage
      */
-    String carName, carPrice, carBrand, userEmail; // to add selected orders in the database
+    String carName, carPrice, carBrand, userEmail, uname; // to add selected orders in the database
 
     public Homepage(String curEmail, String username) {
         initComponents();
         userEmail = curEmail;
+        uname = username;
+        
         jLayeredPane2.setVisible(false);
         jLayeredPane3.setVisible(false);
-
+        
         if (username != null) {
             jLabel48.setText("Hi, " + username + '!');
         }
@@ -187,6 +191,14 @@ public class Homepage extends javax.swing.JFrame {
         jTextField10 = new javax.swing.JTextField();
         jTextField11 = new javax.swing.JTextField();
         jButton17 = new javax.swing.JButton();
+        jLabel57 = new javax.swing.JLabel();
+        jTextField12 = new javax.swing.JTextField();
+        jFrame2 = new javax.swing.JFrame();
+        jPanel12 = new javax.swing.JPanel();
+        jButton18 = new javax.swing.JButton();
+        jLabel55 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -311,7 +323,9 @@ public class Homepage extends javax.swing.JFrame {
         jTextField8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextField8.setMargin(new java.awt.Insets(2, 10, 2, 6));
 
+        jTextField9.setEditable(false);
         jTextField9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextField9.setEnabled(false);
         jTextField9.setMargin(new java.awt.Insets(2, 10, 2, 6));
 
         jTextField10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -329,6 +343,16 @@ public class Homepage extends javax.swing.JFrame {
         jButton17.setText("Update Profile");
         jButton17.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 0), 2));
         jButton17.setFocusPainted(false);
+        jButton17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton17ActionPerformed(evt);
+            }
+        });
+
+        jLabel57.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel57.setText("Password");
+
+        jTextField12.setMargin(new java.awt.Insets(2, 10, 2, 6));
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -349,13 +373,15 @@ public class Homepage extends javax.swing.JFrame {
                                     .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(jPanel11Layout.createSequentialGroup()
                                     .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(jLabel57, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jLabel54, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jLabel53, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jTextField10)
                                         .addComponent(jTextField11)
-                                        .addComponent(jButton17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                                        .addComponent(jButton17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jTextField12))))))
                     .addGroup(jPanel11Layout.createSequentialGroup()
                         .addGap(261, 261, 261)
                         .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -369,12 +395,10 @@ public class Homepage extends javax.swing.JFrame {
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel11Layout.createSequentialGroup()
-                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(41, 41, 41)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel50, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addGap(65, 65, 65)
-                        .addComponent(jLabel50, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
                         .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -388,9 +412,13 @@ public class Homepage extends javax.swing.JFrame {
                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel54)
                             .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(27, 27, 27)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField12, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
+                    .addComponent(jLabel57))
+                .addGap(18, 18, 18)
                 .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addGap(23, 23, 23)
                 .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14))
             .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -409,6 +437,103 @@ public class Homepage extends javax.swing.JFrame {
         jFrame1Layout.setVerticalGroup(
             jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+
+        jFrame2.setBackground(new java.awt.Color(255, 51, 0));
+        jFrame2.setLocation(new java.awt.Point(500, 300));
+        jFrame2.setMinimumSize(new java.awt.Dimension(600, 400));
+        jFrame2.setUndecorated(true);
+        jFrame2.setPreferredSize(new java.awt.Dimension(600, 400));
+
+        jPanel12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 0), 5));
+
+        jButton18.setBackground(new java.awt.Color(255, 51, 0));
+        jButton18.setForeground(new java.awt.Color(255, 255, 255));
+        jButton18.setText("back");
+        jButton18.setBorderPainted(false);
+        jButton18.setFocusPainted(false);
+        jButton18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton18ActionPerformed(evt);
+            }
+        });
+
+        jLabel55.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel55.setText("My Orders");
+
+        jTable1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 0)));
+        jTable1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Models", "Price", "Email", "Address"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable1.setGridColor(new java.awt.Color(255, 51, 0));
+        jTable1.setRowHeight(30);
+        jTable1.setRowSelectionAllowed(false);
+        jScrollPane1.setViewportView(jTable1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(0).setResizable(false);
+            jTable1.getColumnModel().getColumn(1).setResizable(false);
+            jTable1.getColumnModel().getColumn(2).setResizable(false);
+            jTable1.getColumnModel().getColumn(3).setResizable(false);
+        }
+
+        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
+        jPanel12.setLayout(jPanel12Layout);
+        jPanel12Layout.setHorizontalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addGap(225, 225, 225)
+                        .addComponent(jLabel55)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 559, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+        jPanel12Layout.setVerticalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel55)
+                    .addComponent(jButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jFrame2Layout = new javax.swing.GroupLayout(jFrame2.getContentPane());
+        jFrame2.getContentPane().setLayout(jFrame2Layout);
+        jFrame2Layout.setHorizontalGroup(
+            jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jFrame2Layout.setVerticalGroup(
+            jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -455,13 +580,18 @@ public class Homepage extends javax.swing.JFrame {
 
         jButton5.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Orders");
+        jButton5.setText("My Orders");
         jButton5.setToolTipText("");
         jButton5.setActionCommand("orders");
         jButton5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 2, true));
         jButton5.setContentAreaFilled(false);
         jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton5.setFocusPainted(false);
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
         jButton6.setForeground(new java.awt.Color(255, 255, 255));
@@ -490,11 +620,11 @@ public class Homepage extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Algerian", 0, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("AutoMobils");
+        jLabel3.setText("kinben?");
 
         jLabel2.setFont(new java.awt.Font("Algerian", 0, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel2.setText("BD");
+        jLabel2.setText("car");
 
         jLabel48.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel48.setForeground(new java.awt.Color(255, 255, 255));
@@ -508,7 +638,7 @@ public class Homepage extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
-                .addGap(173, 173, 173)
+                .addGap(224, 224, 224)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1086,8 +1216,14 @@ public class Homepage extends javax.swing.JFrame {
         jLabel38.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel38.setText("Your Name");
 
+        jTextField1.setEditable(false);
         jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextField1.setMargin(new java.awt.Insets(2, 10, 2, 6));
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         jLabel39.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel39.setText("Address (Street, City, Country)");
@@ -1133,6 +1269,7 @@ public class Homepage extends javax.swing.JFrame {
         jTextField6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextField6.setMargin(new java.awt.Insets(2, 10, 2, 6));
 
+        jTextField7.setEditable(false);
         jTextField7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextField7.setMargin(new java.awt.Insets(2, 10, 2, 6));
 
@@ -1376,6 +1513,10 @@ public class Homepage extends javax.swing.JFrame {
         jLabel36.setVisible(false);
         jLayeredPane2.setVisible(true);
         jLayeredPane3.setVisible(false);
+//        
+//        if(uname.isEmpty()){
+//            jButton15.setEnabled(false);
+//        }
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -1506,10 +1647,10 @@ public class Homepage extends javax.swing.JFrame {
                 Statement stmt = (Statement) con.createStatement();
 
                 String insert = "INSERT INTO orders VALUES('" + carName + "','" + email + "','" + name + "','" + price + "','" + address + "');";
-                String update = "UPDATE userreg SET name = '" + name + "', card = '" + card + "', address = '" + address + "' WHERE email = '" + userEmail + "' ";
+                //String update = "UPDATE userreg SET name = '" + name + "', card = '" + card + "', address = '" + address + "' WHERE email = '" + userEmail + "' ";
 
                 stmt.executeUpdate(insert);
-                stmt.executeUpdate(update);
+                //stmt.executeUpdate(update);
 
                 jLayeredPane3.setVisible(true);
 
@@ -1534,7 +1675,7 @@ public class Homepage extends javax.swing.JFrame {
             }
 
         } else {
-            JOptionPane.showMessageDialog(null, "Insert all information", "Error", 1);
+            JOptionPane.showMessageDialog(null, "Update your Profile First!", "Error", 1);
         }
     }//GEN-LAST:event_jButton15ActionPerformed
 
@@ -1573,11 +1714,11 @@ public class Homepage extends javax.swing.JFrame {
             ResultSet user;
             try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql?user=root&password=root")) {
                 stmt = conn.createStatement();
-                
+
                 String sqlUser = "SELECT * FROM userreg LIMIT 100";
 
                 user = stmt.executeQuery(sqlUser);
-                
+
                 while (user.next()) {
                     String emailcheck = user.getString("email");
                     if (emailcheck.equals(userEmail)) {
@@ -1585,6 +1726,7 @@ public class Homepage extends javax.swing.JFrame {
                         jTextField9.setText(user.getString("email"));
                         jTextField10.setText(user.getString("address"));
                         jTextField11.setText(user.getString("card"));
+                        jTextField12.setText(user.getString("pass"));
                     }
 
                 }
@@ -1607,6 +1749,95 @@ public class Homepage extends javax.swing.JFrame {
     private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField11ActionPerformed
+
+    boolean isOrderClicked = false;
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        jFrame2.setVisible(true);
+        String model, email, price, address;
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Statement stmt;
+            ResultSet rs;
+            try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql?user=root&password=root")) {
+                stmt = conn.createStatement();
+                String sql = "SELECT * FROM orders LIMIT 100";
+                rs = stmt.executeQuery(sql);
+
+                while (rs.next()) {
+                    String emailchk = rs.getString("email");
+                    if (emailchk.equals(userEmail) && !isOrderClicked) {
+                        model = (rs.getString("Model"));
+                        email = (rs.getString("Email"));
+                        price = (rs.getString("Price"));
+                        address = (rs.getString("Address"));
+                        String tbData[] = {model, price, email, address};
+                        DefaultTableModel tblmodel = (DefaultTableModel) jTable1.getModel();
+                        tblmodel.addRow(tbData);
+                    }
+                }
+            }
+            rs.close();
+            isOrderClicked = true;
+            stmt.close();
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+        // TODO add your handling code here:
+        jFrame2.setVisible(false);
+        DefaultTableModel tblmodel = (DefaultTableModel) jTable1.getModel();
+        tblmodel.setRowCount(0);
+        isOrderClicked = false;
+    }//GEN-LAST:event_jButton18ActionPerformed
+
+    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+        // TODO add your handling code here:
+        String name, address, email, card, pass;
+        name = jTextField8.getText();
+        address = jTextField10.getText();
+        email = jTextField9.getText();
+        card = jTextField11.getText();
+        pass = jTextField12.getText();
+
+        String eemail = userEmail;
+
+        Boolean isempty = false;
+
+        if (name.isEmpty() || address.isEmpty() || email.isEmpty() || card.isEmpty() || pass.isEmpty()) {
+            isempty = true;
+        }
+
+        if (isempty == false) {
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql?user=root&password=root");
+                Statement stmt = (Statement) con.createStatement();
+                String update = "UPDATE userreg SET name = '" + name + "', pass = '" + pass + "', card = '" + card + "', address = '" + address + "' WHERE email = '" + userEmail + "' ";
+                String update2 = "UPDATE orders SET User = '" + name + "' WHERE Email = '" + userEmail + "' ";
+                stmt.executeUpdate(update);
+                stmt.executeUpdate(update2);
+                JOptionPane.showMessageDialog(null, "Profile Updated", "Info", 1);
+                jFrame1.setVisible(false);
+                jButton15.setEnabled(true);
+                jLabel48.setText("Hi, " + name + '!');
+                
+
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e.getMessage(), "Error", 1);
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Insert all information", "Error", 1);
+        }
+    }//GEN-LAST:event_jButton17ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1655,6 +1886,7 @@ public class Homepage extends javax.swing.JFrame {
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
+    private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -1664,6 +1896,7 @@ public class Homepage extends javax.swing.JFrame {
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JFrame jFrame1;
+    private javax.swing.JFrame jFrame2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1714,6 +1947,8 @@ public class Homepage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -1724,6 +1959,7 @@ public class Homepage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1732,9 +1968,12 @@ public class Homepage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
+    private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;

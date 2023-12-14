@@ -26,7 +26,7 @@ public class Register extends javax.swing.JFrame {
      */
     public Register() {
         initComponents();
-        String imgURL = "https://hips.hearstapps.com/hmg-prod/images/2024-lamborghini-revuelto-127-641a1d518802b.jpg?crop=0.566xw:1.00xh;0.184xw,0&resize=640:*";
+        String imgURL = "https://i2.wp.com/sgmotoringhub.com/wp-content/uploads/2022/05/003-car-loan.png?fit=256%2C256&ssl=1";
         ImageIcon image = null;
         try {
             image = new ImageIcon(ImageIO.read(
@@ -140,11 +140,11 @@ public class Register extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Algerian", 0, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel2.setText("BD");
+        jLabel2.setText("car");
 
         jLabel3.setFont(new java.awt.Font("Algerian", 0, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("AutoMobils");
+        jLabel3.setText("kinben?");
 
         jLabel4.setText("image");
         jLabel4.setToolTipText("");
@@ -154,7 +154,7 @@ public class Register extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(50, 50, 50)
+                .addGap(68, 68, 68)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
@@ -270,6 +270,7 @@ public class Register extends javax.swing.JFrame {
 
                 String insert = "INSERT INTO userreg VALUES('" + email + "','" + password + "', null, null, null);";
                 stmt.executeUpdate(insert);
+                JOptionPane.showMessageDialog(null, "Registration Completed", "Info", 1);
                 Login login = new Login();
                 login.setVisible(true);
                 dispose();

@@ -39,7 +39,7 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
 
-        String imgURL = "https://hips.hearstapps.com/hmg-prod/images/2024-lamborghini-revuelto-127-641a1d518802b.jpg?crop=0.566xw:1.00xh;0.184xw,0&resize=640:*";
+        String imgURL = "https://i2.wp.com/sgmotoringhub.com/wp-content/uploads/2022/05/003-car-loan.png?fit=256%2C256&ssl=1";
         ImageIcon image = null;
         try {
             image = new ImageIcon(ImageIO.read(
@@ -82,11 +82,11 @@ public class Login extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Algerian", 0, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel2.setText("BD");
+        jLabel2.setText("car");
 
         jLabel3.setFont(new java.awt.Font("Algerian", 0, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("AutoMobils");
+        jLabel3.setText("kinben?");
 
         jLabel4.setText("image");
         jLabel4.setToolTipText("");
@@ -96,7 +96,7 @@ public class Login extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(55, 55, 55)
+                .addGap(73, 73, 73)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
@@ -167,7 +167,8 @@ public class Login extends javax.swing.JFrame {
 
         jButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(51, 0, 102));
-        jButton2.setText("New to BD Automobils? Join Now");
+        jButton2.setText("New to Car Kinben? Join Now");
+        jButton2.setActionCommand("New to Car Kinben? Join Now");
         jButton2.setBorder(null);
         jButton2.setBorderPainted(false);
         jButton2.setContentAreaFilled(false);

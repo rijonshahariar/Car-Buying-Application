@@ -352,6 +352,7 @@ public class Homepage extends javax.swing.JFrame {
         jLabel57.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel57.setText("Password");
 
+        jTextField12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextField12.setMargin(new java.awt.Insets(2, 10, 2, 6));
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
@@ -445,12 +446,14 @@ public class Homepage extends javax.swing.JFrame {
         jFrame2.setUndecorated(true);
         jFrame2.setPreferredSize(new java.awt.Dimension(600, 400));
 
+        jPanel12.setBackground(new java.awt.Color(255, 51, 0));
         jPanel12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 0), 5));
 
-        jButton18.setBackground(new java.awt.Color(255, 51, 0));
+        jButton18.setBackground(new java.awt.Color(255, 0, 0));
+        jButton18.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton18.setForeground(new java.awt.Color(255, 255, 255));
         jButton18.setText("back");
-        jButton18.setBorderPainted(false);
+        jButton18.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jButton18.setFocusPainted(false);
         jButton18.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -459,6 +462,7 @@ public class Homepage extends javax.swing.JFrame {
         });
 
         jLabel55.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel55.setForeground(new java.awt.Color(255, 255, 255));
         jLabel55.setText("My Orders");
 
         jTable1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 0)));
@@ -522,7 +526,7 @@ public class Homepage extends javax.swing.JFrame {
                     .addComponent(jButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jFrame2Layout = new javax.swing.GroupLayout(jFrame2.getContentPane());

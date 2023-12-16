@@ -7,6 +7,7 @@ com\mycompany\automobils\AdminPanel.class
 com\mycompany\automobils\Homepage$8.class
 com\mycompany\automobils\Register$3.class
 com\mycompany\automobils\Homepage$23.class
+com\mycompany\automobils\AdminPanel$9.class
 com\mycompany\automobils\Homepage$5.class
 com\mycompany\automobils\Homepage$13.class
 com\mycompany\automobils\Login$6.class
@@ -14,6 +15,7 @@ com\mycompany\automobils\Register$7.class
 com\mycompany\automobils\AdminPanel$1.class
 com\mycompany\automobils\Homepage$20.class
 com\mycompany\automobils\Homepage$7.class
+com\mycompany\automobils\AdminPanel$8.class
 com\mycompany\automobils\Login$3.class
 com\mycompany\automobils\Homepage$19.class
 com\mycompany\automobils\Homepage$15.class
@@ -31,6 +33,7 @@ com\mycompany\automobils\Homepage$21.class
 com\mycompany\automobils\Homepage$18.class
 com\mycompany\automobils\Login.class
 com\mycompany\automobils\Login$4.class
+com\mycompany\automobils\AdminPanel$7.class
 com\mycompany\automobils\AdminPanel$4.class
 com\mycompany\automobils\Homepage$2.class
 com\mycompany\automobils\Register$4.class

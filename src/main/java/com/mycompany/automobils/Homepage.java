@@ -287,7 +287,6 @@ public class Homepage extends javax.swing.JFrame {
         jFrame1.setLocation(new java.awt.Point(500, 200));
         jFrame1.setMinimumSize(new java.awt.Dimension(600, 400));
         jFrame1.setUndecorated(true);
-        jFrame1.setPreferredSize(new java.awt.Dimension(600, 400));
 
         jPanel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 0), 5));
         jPanel11.setPreferredSize(new java.awt.Dimension(600, 400));
@@ -442,12 +441,13 @@ public class Homepage extends javax.swing.JFrame {
 
         jFrame2.setBackground(new java.awt.Color(255, 51, 0));
         jFrame2.setLocation(new java.awt.Point(500, 200));
-        jFrame2.setMinimumSize(new java.awt.Dimension(600, 400));
+        jFrame2.setMinimumSize(new java.awt.Dimension(700, 400));
         jFrame2.setUndecorated(true);
         jFrame2.setPreferredSize(new java.awt.Dimension(600, 400));
 
         jPanel12.setBackground(new java.awt.Color(255, 51, 0));
         jPanel12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 0), 5));
+        jPanel12.setPreferredSize(new java.awt.Dimension(700, 400));
 
         jButton18.setBackground(new java.awt.Color(255, 0, 0));
         jButton18.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -472,14 +472,14 @@ public class Homepage extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Models", "Price", "Email", "Address"
+                "Models", "Price", "Email", "Address", "Status"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -499,6 +499,7 @@ public class Homepage extends javax.swing.JFrame {
             jTable1.getColumnModel().getColumn(1).setResizable(false);
             jTable1.getColumnModel().getColumn(2).setResizable(false);
             jTable1.getColumnModel().getColumn(3).setResizable(false);
+            jTable1.getColumnModel().getColumn(4).setResizable(false);
         }
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
@@ -506,16 +507,16 @@ public class Homepage extends javax.swing.JFrame {
         jPanel12Layout.setHorizontalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel12Layout.createSequentialGroup()
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addGap(225, 225, 225)
+                        .addGap(275, 275, 275)
                         .addComponent(jLabel55)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(181, 181, 181)
                         .addComponent(jButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel12Layout.createSequentialGroup()
                         .addGap(15, 15, 15)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 559, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(16, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 657, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1910,7 +1911,7 @@ public class Homepage extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
         jFrame2.setVisible(true);
-        String model, email, price, address;
+        String model, email, price, address, status;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Statement stmt;
@@ -1927,7 +1928,8 @@ public class Homepage extends javax.swing.JFrame {
                         email = (rs.getString("Email"));
                         price = (rs.getString("Price"));
                         address = (rs.getString("Address"));
-                        String tbData[] = {model, price, email, address};
+                        status = (rs.getString("Status"));
+                        String tbData[] = {model, price, email, address, status};
                         DefaultTableModel tblmodel = (DefaultTableModel) jTable1.getModel();
                         tblmodel.addRow(tbData);
                     }

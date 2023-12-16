@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -21,7 +22,7 @@ public class AdminPanel extends javax.swing.JFrame {
      */
     public AdminPanel() {
         //jPanel5.setVisible(true);
-       // jPanel4.setVisible(false);
+        // jPanel4.setVisible(false);
         initComponents();
         userData();
         orderData();
@@ -197,7 +198,14 @@ public class AdminPanel extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTable2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jTable2.setRowHeight(30);
+        jTable2.setSelectionBackground(new java.awt.Color(153, 102, 255));
+        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable2MouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTable2);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -244,16 +252,30 @@ public class AdminPanel extends javax.swing.JFrame {
         jLabel1.setText("Order No.");
 
         jTextField1.setEditable(false);
-        jTextField1.setText("fdfdfd");
+        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jTextField1.setDisabledTextColor(new java.awt.Color(255, 51, 0));
         jTextField1.setEnabled(false);
+        jTextField1.setMargin(new java.awt.Insets(2, 10, 2, 6));
 
         jButton3.setBackground(new java.awt.Color(51, 51, 255));
         jButton3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Confirm Order");
+        jButton3.setFocusPainted(false);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButton4.setText("Cancel Order");
+        jButton4.setFocusPainted(false);
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -335,7 +357,7 @@ public class AdminPanel extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     public void userData() {
-        jPanel2.setVisible(false);
+        //jPanel2.setVisible(false);
         String name, email, card, address;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -383,10 +405,55 @@ public class AdminPanel extends javax.swing.JFrame {
                     orderno = (rs.getString("orderno"));
                     status = (rs.getString("Status"));
                     price = (rs.getString("Price"));
+                    
+                    
                     String tbData[] = {orderno, model, name, email, price, address, status};
                     DefaultTableModel tblmodel = (DefaultTableModel) jTable2.getModel();
                     tblmodel.addRow(tbData);
                 }
+            }
+            rs.close();
+            stmt.close();
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    public void orderConfirm(int m) {
+        int jml = Integer.parseInt(jTextField1.getText());
+        
+        String confirm;
+        if(m == 1){
+            confirm = "confirmed";
+        }
+        else{
+            confirm = "cancelled";
+        }
+        
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Statement stmt;
+            ResultSet rs;
+            try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql?user=root&password=root")) {
+                stmt = conn.createStatement();
+                String sql = "SELECT * FROM orderdb LIMIT 100";
+                rs = stmt.executeQuery(sql);
+
+                while (rs.next()) {
+                    int kml = (rs.getInt("orderno"));
+                    if (kml == jml) {
+                        String update = "UPDATE orderdb SET Status = '" + confirm + "' WHERE orderno = '" + jml + "' ";
+                        stmt.executeUpdate(update);
+                        break;
+                    }
+                }
+                
+                JOptionPane.showMessageDialog(null, "Order " + confirm + '!', "Info", 1);
+                DefaultTableModel tblmodel = (DefaultTableModel) jTable2.getModel();
+                tblmodel.setRowCount(0);
+                orderData();
+                jTextField1.setText(null);
             }
             rs.close();
             stmt.close();
@@ -426,6 +493,24 @@ public class AdminPanel extends javax.swing.JFrame {
         tblmodel.setRowCount(0);
         userData();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+        // TODO add your handling code here:
+        int selRow = jTable2.getSelectedRow();
+        String s = (String) jTable2.getValueAt(selRow, 0);
+        jTextField1.setText(s);
+
+    }//GEN-LAST:event_jTable2MouseClicked
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        orderConfirm(1);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        orderConfirm(0);
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments

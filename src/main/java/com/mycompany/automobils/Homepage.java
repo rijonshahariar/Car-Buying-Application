@@ -49,10 +49,10 @@ public class Homepage extends javax.swing.JFrame {
         initComponents();
         userEmail = curEmail;
         uname = username;
-        
+
         jLayeredPane2.setVisible(false);
         jLayeredPane3.setVisible(false);
-        
+
         if (username != null) {
             jLabel48.setText("Hi, " + username + '!');
         }
@@ -441,7 +441,7 @@ public class Homepage extends javax.swing.JFrame {
         );
 
         jFrame2.setBackground(new java.awt.Color(255, 51, 0));
-        jFrame2.setLocation(new java.awt.Point(500, 300));
+        jFrame2.setLocation(new java.awt.Point(500, 200));
         jFrame2.setMinimumSize(new java.awt.Dimension(600, 400));
         jFrame2.setUndecorated(true);
         jFrame2.setPreferredSize(new java.awt.Dimension(600, 400));
@@ -554,7 +554,7 @@ public class Homepage extends javax.swing.JFrame {
 
         jButton3.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("All Models");
+        jButton3.setText("Home");
         jButton3.setToolTipText("");
         jButton3.setActionCommand("models");
         jButton3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 2, true));
@@ -707,6 +707,14 @@ public class Homepage extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 0)));
+        jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanel2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanel2MouseExited(evt);
+            }
+        });
 
         jLabel1.setText("jLabel1");
 
@@ -768,6 +776,14 @@ public class Homepage extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 51, 0), 1, true));
+        jPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanel4MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanel4MouseExited(evt);
+            }
+        });
 
         jLabel4.setText("jLabel1");
 
@@ -829,6 +845,14 @@ public class Homepage extends javax.swing.JFrame {
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 0)));
+        jPanel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanel5MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanel5MouseExited(evt);
+            }
+        });
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("jLabel5");
@@ -891,6 +915,14 @@ public class Homepage extends javax.swing.JFrame {
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
         jPanel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 0)));
+        jPanel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanel8MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanel8MouseExited(evt);
+            }
+        });
 
         jLabel7.setText("jLabel1");
 
@@ -952,6 +984,14 @@ public class Homepage extends javax.swing.JFrame {
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 0)));
+        jPanel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanel6MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanel6MouseExited(evt);
+            }
+        });
 
         jLabel12.setText("jLabel1");
 
@@ -1013,6 +1053,14 @@ public class Homepage extends javax.swing.JFrame {
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
         jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 0)));
+        jPanel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanel7MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanel7MouseExited(evt);
+            }
+        });
 
         jLabel24.setBackground(new java.awt.Color(255, 255, 255));
         jLabel24.setText("jLabel5");
@@ -1075,6 +1123,14 @@ public class Homepage extends javax.swing.JFrame {
 
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
         jPanel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 0)));
+        jPanel9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanel9MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanel9MouseExited(evt);
+            }
+        });
 
         jLabel28.setText("jLabel1");
 
@@ -1136,6 +1192,14 @@ public class Homepage extends javax.swing.JFrame {
 
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
         jPanel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 0)));
+        jPanel10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanel10MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanel10MouseExited(evt);
+            }
+        });
 
         jLabel32.setText("jLabel1");
 
@@ -1363,29 +1427,28 @@ public class Homepage extends javax.swing.JFrame {
                 .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jLayeredPane2Layout.createSequentialGroup()
                         .addGap(22, 22, 22)
-                        .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jButton15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel38)
-                                .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel42)
-                                .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                                    .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                                            .addComponent(jLabel43)
-                                            .addGap(0, 104, Short.MAX_VALUE))
-                                        .addComponent(jTextField5))
-                                    .addGap(42, 42, 42))
-                                .addComponent(jTextField1)
-                                .addComponent(jTextField3)
-                                .addComponent(jLabel37, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextField6))
+                            .addComponent(jButton15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel38)
+                            .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel42)
+                            .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                                        .addComponent(jLabel43)
+                                        .addGap(0, 104, Short.MAX_VALUE))
+                                    .addComponent(jTextField5))
+                                .addGap(42, 42, 42))
+                            .addComponent(jTextField1)
+                            .addComponent(jTextField3)
+                            .addComponent(jLabel37, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField6)
                             .addGroup(jLayeredPane2Layout.createSequentialGroup()
                                 .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
@@ -1513,11 +1576,12 @@ public class Homepage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void orderSidebar(int id) {
+    public void orderSidebar(int id, JPanel pane, JLabel label) {
         jLabel36.setVisible(false);
         jLayeredPane2.setVisible(true);
         jLayeredPane3.setVisible(false);
-//        
+        String checkName;
+//      
 //        if(uname.isEmpty()){
 //            jButton15.setEnabled(false);
 //        }
@@ -1542,9 +1606,9 @@ public class Homepage extends javax.swing.JFrame {
                         carName = rs.getString("name");
                         carPrice = rs.getString("price");
                         carBrand = rs.getString("brand");
-
                         jLabel37.setText(rs.getString("name"));
                         jTextField2.setText('$' + rs.getString("price"));
+                        break;
                     }
                 }
 
@@ -1554,11 +1618,13 @@ public class Homepage extends javax.swing.JFrame {
                         jTextField1.setText(order.getString("name"));
                         jTextField3.setText(order.getString("address"));
                         jTextField7.setText(order.getString("card"));
+                        break;
                     }
 
                 }
 
             }
+
             rs.close();
             order.close();
             stmt.close();
@@ -1578,47 +1644,112 @@ public class Homepage extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        orderSidebar(996);
+        jPanel2.setBackground(color);
+        jPanel4.setBackground(Color.white);
+        jPanel6.setBackground(Color.white);
+        jPanel8.setBackground(Color.white);
+        jPanel5.setBackground(Color.white);
+        jPanel9.setBackground(Color.white);
+        jPanel10.setBackground(Color.white);
+        jPanel7.setBackground(Color.white);
+        orderSidebar(996, jPanel2, jLabel6);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
-        orderSidebar(1005);
+        jPanel6.setBackground(color);
+        jPanel4.setBackground(Color.white);
+        jPanel2.setBackground(Color.white);
+        jPanel8.setBackground(Color.white);
+        jPanel5.setBackground(Color.white);
+        jPanel9.setBackground(Color.white);
+        jPanel10.setBackground(Color.white);
+        jPanel7.setBackground(Color.white);
+        orderSidebar(1005, jPanel6, jLabel21);
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        jLayeredPane3.setVisible(false);
 
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        orderSidebar(1000);
+        jPanel4.setBackground(color);
+        jPanel2.setBackground(Color.white);
+        jPanel6.setBackground(Color.white);
+        jPanel8.setBackground(Color.white);
+        jPanel5.setBackground(Color.white);
+        jPanel9.setBackground(Color.white);
+        jPanel10.setBackground(Color.white);
+        jPanel7.setBackground(Color.white);
+        orderSidebar(1000, jPanel4, jLabel11);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
-        orderSidebar(1002);
+        jPanel8.setBackground(color);
+        jPanel4.setBackground(Color.white);
+        jPanel6.setBackground(Color.white);
+        jPanel2.setBackground(Color.white);
+        jPanel5.setBackground(Color.white);
+        jPanel9.setBackground(Color.white);
+        jPanel10.setBackground(Color.white);
+        jPanel7.setBackground(Color.white);
+        orderSidebar(1002, jPanel8, jLabel15);
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
-        orderSidebar(997);
+        jPanel5.setBackground(color);
+        jPanel4.setBackground(Color.white);
+        jPanel6.setBackground(Color.white);
+        jPanel8.setBackground(Color.white);
+        jPanel2.setBackground(Color.white);
+        jPanel9.setBackground(Color.white);
+        jPanel10.setBackground(Color.white);
+        jPanel7.setBackground(Color.white);
+        orderSidebar(997, jPanel5, jLabel18);
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
-        orderSidebar(1006);
+        jPanel9.setBackground(color);
+        jPanel4.setBackground(Color.white);
+        jPanel6.setBackground(Color.white);
+        jPanel8.setBackground(Color.white);
+        jPanel5.setBackground(Color.white);
+        jPanel2.setBackground(Color.white);
+        jPanel10.setBackground(Color.white);
+        jPanel7.setBackground(Color.white);
+        orderSidebar(1006, jPanel9, jLabel29);
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         // TODO add your handling code here:
-        orderSidebar(1007);
+        jPanel10.setBackground(color);
+        jPanel4.setBackground(Color.white);
+        jPanel6.setBackground(Color.white);
+        jPanel8.setBackground(Color.white);
+        jPanel5.setBackground(Color.white);
+        jPanel9.setBackground(Color.white);
+        jPanel2.setBackground(Color.white);
+        jPanel7.setBackground(Color.white);
+        orderSidebar(1007, jPanel10, jLabel33);
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         // TODO add your handling code here:
-        orderSidebar(1008);
+        jPanel7.setBackground(color);
+        jPanel4.setBackground(Color.white);
+        jPanel6.setBackground(Color.white);
+        jPanel8.setBackground(Color.white);
+        jPanel5.setBackground(Color.white);
+        jPanel9.setBackground(Color.white);
+        jPanel10.setBackground(Color.white);
+        jPanel2.setBackground(Color.white);
+        orderSidebar(1008, jPanel7, jLabel25);
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
@@ -1635,9 +1766,11 @@ public class Homepage extends javax.swing.JFrame {
         cvv = jTextField4.getText();
         exp = jTextField5.getText();
         price = jTextField2.getText();
-
+        String status = "pending";
+        
         String email = userEmail;
-
+        int orderNo = 1000;
+        
         Boolean isempty = false;
 
         if (name.isEmpty() || address.isEmpty() || phone.isEmpty() || card.isEmpty() || cvv.isEmpty() || exp.isEmpty()) {
@@ -1649,10 +1782,20 @@ public class Homepage extends javax.swing.JFrame {
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql?user=root&password=root");
                 Statement stmt = (Statement) con.createStatement();
+                
+                
 
-                String insert = "INSERT INTO orders VALUES('" + carName + "','" + email + "','" + name + "','" + price + "','" + address + "');";
+                ResultSet rs;
                 //String update = "UPDATE userreg SET name = '" + name + "', card = '" + card + "', address = '" + address + "' WHERE email = '" + userEmail + "' ";
+                String sql = "SELECT * FROM orderdb LIMIT 100";
+                rs = stmt.executeQuery(sql);
 
+                while (rs.next()) {
+                    orderNo = rs.getInt("orderno");
+                    orderNo++;
+                }
+                
+                String insert = "INSERT INTO orderdb VALUES('"+ orderNo +"', '" + carName + "','" + email + "','" + name + "','" + price + "','" + address + "', '" + status + "');";
                 stmt.executeUpdate(insert);
                 //stmt.executeUpdate(update);
 
@@ -1693,6 +1836,15 @@ public class Homepage extends javax.swing.JFrame {
         jTextField7.setText("");
         jTextField4.setText("");
         jTextField5.setText("");
+
+        jPanel7.setBackground(Color.white);
+        jPanel4.setBackground(Color.white);
+        jPanel6.setBackground(Color.white);
+        jPanel8.setBackground(Color.white);
+        jPanel5.setBackground(Color.white);
+        jPanel9.setBackground(Color.white);
+        jPanel10.setBackground(Color.white);
+        jPanel2.setBackground(Color.white);
 
     }//GEN-LAST:event_jButton14ActionPerformed
 
@@ -1765,7 +1917,7 @@ public class Homepage extends javax.swing.JFrame {
             ResultSet rs;
             try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql?user=root&password=root")) {
                 stmt = conn.createStatement();
-                String sql = "SELECT * FROM orders LIMIT 100";
+                String sql = "SELECT * FROM orderdb LIMIT 100";
                 rs = stmt.executeQuery(sql);
 
                 while (rs.next()) {
@@ -1821,14 +1973,16 @@ public class Homepage extends javax.swing.JFrame {
                 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql?user=root&password=root");
                 Statement stmt = (Statement) con.createStatement();
                 String update = "UPDATE userreg SET name = '" + name + "', pass = '" + pass + "', card = '" + card + "', address = '" + address + "' WHERE email = '" + userEmail + "' ";
-                String update2 = "UPDATE orders SET User = '" + name + "' WHERE Email = '" + userEmail + "' ";
+                String update2 = "UPDATE orderdb SET User = '" + name + "' WHERE Email = '" + userEmail + "' ";
                 stmt.executeUpdate(update);
                 stmt.executeUpdate(update2);
                 JOptionPane.showMessageDialog(null, "Profile Updated", "Info", 1);
                 jFrame1.setVisible(false);
                 jButton15.setEnabled(true);
                 jLabel48.setText("Hi, " + name + '!');
-                
+                jTextField1.setText(name);
+                jTextField3.setText(address);
+                jTextField7.setText(card);
 
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, e.getMessage(), "Error", 1);
@@ -1839,9 +1993,76 @@ public class Homepage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton17ActionPerformed
 
+    Color color = new Color(255, 204, 204);
+
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jPanel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel2MouseEntered
+
+    private void jPanel2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel2MouseExited
+
+    private void jPanel4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel4MouseEntered
+
+    private void jPanel4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel4MouseExited
+
+    private void jPanel8MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel8MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel8MouseEntered
+
+    private void jPanel8MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel8MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel8MouseExited
+
+    private void jPanel5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel5MouseEntered
+
+    private void jPanel5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel5MouseExited
+
+    private void jPanel6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel6MouseEntered
+
+    private void jPanel6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel6MouseExited
+
+    private void jPanel9MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel9MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel9MouseEntered
+
+    private void jPanel9MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel9MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel9MouseExited
+
+    private void jPanel10MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel10MouseEntered
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jPanel10MouseEntered
+
+    private void jPanel10MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel10MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel10MouseExited
+
+    private void jPanel7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel7MouseEntered
+
+    private void jPanel7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel7MouseExited
 
     /**
      * @param args the command line arguments

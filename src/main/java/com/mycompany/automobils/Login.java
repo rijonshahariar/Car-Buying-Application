@@ -77,6 +77,7 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
+        setResizable(false);
 
         jPanel2.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -168,7 +169,6 @@ public class Login extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(51, 0, 102));
         jButton2.setText("New to Car Kinben? Join Now");
-        jButton2.setActionCommand("New to Car Kinben? Join Now");
         jButton2.setBorder(null);
         jButton2.setBorderPainted(false);
         jButton2.setContentAreaFilled(false);
@@ -257,14 +257,14 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         Register register = new Register();
         register.setVisible(true);
-        
+
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton2AncestorMoved(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jButton2AncestorMoved
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2AncestorMoved
-    
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
 
@@ -275,7 +275,14 @@ public class Login extends javax.swing.JFrame {
         if (password.isEmpty() || email.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Enter Email and Password", "Error", 1);
         } else {
-            try {
+
+            if (email.equals("admin@cars.com") && password.equals("admin")) {
+                AdminPanel admin = new AdminPanel();
+                admin.setVisible(true);
+                dispose();
+            }
+            else{
+                try {
 
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 Statement stmt;
@@ -306,6 +313,7 @@ public class Login extends javax.swing.JFrame {
 
             } catch (Exception e) {
                 System.out.println(e);
+            }
             }
         }
 
